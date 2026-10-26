@@ -1,0 +1,244 @@
+/* =========================================================
+   MiSHAÉ LUXURY FABRIC ATELIER - CONTACT & CONCIERGE STYLES
+   Clean, modern, off-white editorial aesthetic
+   ========================================================= */
+
+.contact-section {
+    padding: 60px 24px 80px;
+    background-color: var(--story-bg-base);
+}
+
+.contact-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.contact-heading .section-subtitle {
+    color: var(--story-champagne-dark);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.contact-heading h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 3.2vw, 36px);
+    color: var(--story-text-dark);
+    font-weight: 500;
+    margin: 0 0 10px;
+}
+
+.contact-heading > p:last-child {
+    color: var(--story-text-muted);
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Contact Grid Layout */
+.contact-container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr;
+    gap: 35px;
+    max-width: 1160px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* 1. Information Panel (Warm Luxury Card) */
+.contact-info {
+    padding: 40px 35px;
+    background: #FFFFFF;
+    color: var(--story-text-dark);
+    border: 1px solid var(--story-border);
+    border-radius: 8px;
+    box-shadow: var(--story-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--story-text-dark);
+    margin: 0 0 12px;
+}
+
+.contact-info-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--story-text-muted);
+    margin-bottom: 30px;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--story-bg-alt);
+    border: 1px solid var(--story-border);
+    color: var(--story-champagne-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.contact-info-item h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--story-text-dark);
+    margin: 0 0 4px;
+}
+
+.contact-info-item p {
+    font-size: 13.5px;
+    color: var(--story-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.contact-note {
+    margin-top: auto;
+    padding-top: 25px;
+    border-top: 1px solid var(--story-border);
+}
+
+.contact-note p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--story-text-dark);
+    margin: 0 0 4px;
+}
+
+.contact-note span {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--story-champagne-dark);
+}
+
+/* 2. Inquiry Form Box */
+.contact-form-box {
+    padding: 40px;
+    background: #FFFFFF;
+    border: 1px solid var(--story-border);
+    border-radius: 8px;
+    box-shadow: var(--story-shadow);
+}
+
+.contact-form-box h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--story-text-dark);
+    margin: 0 0 8px;
+}
+
+.contact-form-box > p {
+    font-size: 14px;
+    color: var(--story-text-muted);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.contact-form-box .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form-box label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--story-text-dark);
+    margin-bottom: 8px;
+}
+
+.contact-form-box input,
+.contact-form-box textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--story-bg-base);
+    border: 1px solid var(--story-border);
+    border-radius: 4px;
+    font-size: 13.5px;
+    color: var(--story-text-dark);
+    outline: none;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.contact-form-box input:focus,
+.contact-form-box textarea:focus {
+    background: #FFFFFF;
+    border-color: var(--story-champagne);
+    box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.15);
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 34px;
+    background: #29211f;
+    color: #FFFFFF;
+    border: 1px solid #29211f;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.contact-btn:hover {
+    background: #a78543 !important;
+    border-color: #a78543 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(167, 133, 67, 0.35);
+    color: #FFFFFF !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .contact-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-form-box,
+    .contact-info {
+        padding: 30px 22px;
+    }
+}

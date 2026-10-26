@@ -1,0 +1,832 @@
+/* =========================================================
+   MiSHAÉ LUXURY FABRIC ATELIER - GLOBAL LAYOUT & BASE CSS
+   Consistent off-white, champagne, and Playfair editorial aesthetic
+   ========================================================= */
+
+:root {
+    --story-bg-base: #FAF8F5;
+    --story-bg-card: #FFFFFF;
+    --story-bg-alt: #F4EFEA;
+    --story-text-dark: #292526;
+    --story-text-muted: #6B645E;
+    --story-champagne: #C5A880;
+    --story-champagne-dark: #8B7765;
+    --story-champagne-soft: #E8DDD0;
+    --story-border: #EAE5DF;
+    --story-shadow: 0 10px 30px rgba(14, 14, 16, 0.06);
+    --story-shadow-hover: 0 15px 35px rgba(14, 14, 16, 0.1);
+
+    /* Backwards compatibility aliases */
+    --black: #292526;
+    --white: #FFFFFF;
+    --champagne: #C5A880;
+    --text: #292526;
+    --muted: #6B645E;
+    --border: #EAE5DF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: clip;
+}
+
+body {
+    margin: 0;
+    background-color: var(--story-bg-base) !important;
+    color: var(--story-text-dark);
+    font-family: 'Poppins', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+    color: var(--story-text-dark);
+    font-weight: normal;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+    color: inherit;
+    text-decoration: none !important;
+    transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+a:hover {
+    color: var(--story-champagne-dark);
+}
+
+/* Ensure no unwanted underlines across all interactive cards and elements */
+.category-card,
+.category-card:hover,
+.category-card:focus,
+.category-card:active,
+.category-card:visited,
+.mishae-season-card,
+.mishae-season-card:hover,
+.mishae-season-card:focus,
+.mishae-season-card:active,
+.mishae-season-card:visited,
+.mishae-product-card,
+.mishae-product-card:hover,
+.mishae-product-card:focus,
+.mishae-product-card:active,
+.mishae-product-card:visited,
+.kids-card,
+.kids-card:hover,
+.kids-card:focus,
+.kids-card:active,
+.kids-card:visited,
+.category-btn,
+.category-btn:hover,
+.mishae-shop-btn,
+.mishae-shop-btn:hover,
+.product-btn,
+.product-btn:hover,
+.mishae-view-product,
+.mishae-view-product:hover {
+    text-decoration: none !important;
+}
+
+/* =========================================================
+   UNIVERSAL MiSHAÉ BUTTON SYSTEM (MATCHING ADMIN PANEL)
+   Normal State: #29211f (Dark Charcoal / Black)
+   Hover State:  #a78543 (MiSHAÉ Signature Gold)
+   ========================================================= */
+
+/* Solid Primary Buttons */
+.btn-dark,
+.btn-primary,
+.btn-primary-mishae,
+.btn-checkout,
+.btn-place-order,
+.btn-buy-now,
+.btn-add-to-cart,
+.explore-btn,
+.story-primary-btn,
+.contact-btn,
+.banner-btn,
+.mishae-quick-add-btn,
+.btn-confirm-continue,
+.btn-success-continue,
+.coupon-btn,
+.btn-footer-newsletter,
+.btn-wishlist-move,
+.btn-wishlist-explore,
+.login-box button {
+    background-color: #29211f !important;
+    border: 1px solid #29211f !important;
+    color: #ffffff !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary-mishae:hover,
+.btn-primary-mishae:focus,
+.btn-checkout:hover,
+.btn-checkout:focus,
+.btn-place-order:hover,
+.btn-place-order:focus,
+.btn-buy-now:hover,
+.btn-buy-now:focus,
+.btn-add-to-cart:hover,
+.btn-add-to-cart:focus,
+.explore-btn:hover,
+.explore-btn:focus,
+.story-primary-btn:hover,
+.story-primary-btn:focus,
+.contact-btn:hover,
+.contact-btn:focus,
+.banner-btn:hover,
+.banner-btn:focus,
+.mishae-quick-add-btn:hover,
+.mishae-quick-add-btn:focus,
+.btn-confirm-continue:hover,
+.btn-confirm-continue:focus,
+.btn-success-continue:hover,
+.btn-success-continue:focus,
+.coupon-btn:hover,
+.coupon-btn:focus,
+.btn-footer-newsletter:hover,
+.btn-footer-newsletter:focus,
+.btn-wishlist-move:hover,
+.btn-wishlist-move:focus,
+.btn-wishlist-explore:hover,
+.btn-wishlist-explore:focus,
+.login-box button:hover,
+.login-box button:focus {
+    background-color: #a78543 !important;
+    border-color: #a78543 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(167, 133, 67, 0.25) !important;
+}
+
+/* Secondary / Outline Buttons */
+.btn-outline-dark,
+.mishae-outline-btn,
+.btn-success-orders,
+.btn-success-print,
+.btn-confirm-print {
+    background-color: transparent !important;
+    border: 1px solid #29211f !important;
+    color: #29211f !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus,
+.btn-outline-dark:active,
+.mishae-outline-btn:hover,
+.mishae-outline-btn:focus,
+.btn-success-orders:hover,
+.btn-success-orders:focus,
+.btn-success-print:hover,
+.btn-success-print:focus,
+.btn-confirm-print:hover,
+.btn-confirm-print:focus {
+    background-color: #a78543 !important;
+    border-color: #a78543 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(167, 133, 67, 0.25) !important;
+}
+
+/* Ensure button icons match text color */
+.btn-dark:hover i,
+.btn-primary:hover i,
+.btn-checkout:hover i,
+.btn-place-order:hover i,
+.btn-buy-now:hover i,
+.btn-add-to-cart:hover i,
+.explore-btn:hover i,
+.mishae-quick-add-btn:hover i,
+.btn-outline-dark:hover i,
+.mishae-outline-btn:hover i,
+.btn-success-orders:hover i,
+.btn-success-print:hover i {
+    color: #ffffff !important;
+}
+
+/* Seasonal Cards Shop Now Button */
+.mishae-season-card:hover .mishae-shop-btn,
+.mishae-shop-btn:hover {
+    background-color: #a78543 !important;
+    border-color: #a78543 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   REUSABLE EDITORIAL HEADER & CONTAINERS
+   (Signature Style from Our Story Page)
+   ========================================= */
+
+.story-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.story-header-section,
+.page-intro-header {
+    padding: 38px 20px 26px;
+    background: var(--story-bg-base);
+    text-align: center;
+    border-bottom: 1px solid var(--story-border);
+}
+
+.story-eyebrow,
+.story-section-tag,
+.page-intro-eyebrow {
+    display: inline-block;
+    font-size: 10.5px;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--story-champagne-dark);
+    margin-bottom: 6px;
+}
+
+.story-main-title,
+.page-intro-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 500;
+    color: var(--story-text-dark);
+    line-height: 1.25;
+    margin: 0 0 8px;
+    letter-spacing: -0.3px;
+}
+
+.story-divider {
+    display: none; /* Removed redundant line to keep layout clean and modern */
+}
+
+.story-divider-center {
+    display: none;
+}
+
+.story-intro-text,
+.page-intro-desc {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--story-text-muted);
+}
+
+.story-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 32px;
+    background: #29211f;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 1px solid #29211f;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.story-primary-btn:hover {
+    background: #a78543 !important;
+    border-color: #a78543 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(167, 133, 67, 0.35);
+}
+
+/* =========================================
+   ANNOUNCEMENT BAR
+   ========================================= */
+
+.mishae-announcement {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    min-height: 24px;
+    padding: 3px 12px;
+    background: #1A1718;
+    color: #FAF8F5;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.announcement-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 12px;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.announcement-item + .announcement-item {
+    border-left: 1px solid #3A3532;
+}
+
+.announcement-item i {
+    color: var(--story-champagne);
+    font-size: 9px;
+}
+
+/* =========================================
+   NAVBAR WRAPPER (STICKY / FIXED)
+   ========================================= */
+
+.mishae-nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: #FAF8F5;
+    border-bottom: 1px solid var(--story-border);
+    box-shadow: 0 4px 18px rgba(14, 14, 16, 0.06);
+    transition: box-shadow 0.25s ease;
+}
+
+/* =========================================
+   SMOOTH SESSION ALERT (ZERO JERK)
+   ========================================= */
+
+/* =========================================
+   FLASH NOTIFICATIONS & TOASTS
+   (Fixed in Viewport so user never misses notifications when scrolled)
+   ========================================= */
+
+.mishae-alert {
+    position: fixed !important;
+    top: 24px !important;
+    right: 24px !important;
+    max-width: 440px !important;
+    width: calc(100% - 48px) !important;
+    z-index: 10800 !important;
+    margin: 0 !important;
+    padding: 14px 20px !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 15px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    box-shadow: 0 16px 40px rgba(14, 14, 16, 0.22) !important;
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    animation: alertSlideInRight 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    transition: opacity 0.35s ease, transform 0.35s ease !important;
+}
+
+@keyframes alertSlideInRight {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.mishae-alert.alert-collapsing {
+    opacity: 0 !important;
+    transform: translateY(-16px) scale(0.96) !important;
+    pointer-events: none !important;
+    transition: opacity 0.35s ease, transform 0.35s ease !important;
+}
+
+@media (max-width: 576px) {
+    .mishae-alert {
+        top: 14px !important;
+        right: 14px !important;
+        left: 14px !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+}
+
+.mishae-alert .close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    color: inherit;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    padding: 0 4px;
+}
+
+.mishae-alert .close:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* =========================================================
+   MiSHAÉ LUXURY VIEWPORT TOAST SYSTEM
+   ========================================================= */
+.mishae-toast-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 10850;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 420px;
+    width: calc(100% - 48px);
+    pointer-events: none;
+}
+
+.mishae-luxury-toast {
+    background: #FFFFFF;
+    border: 1px solid #EAE5DF;
+    border-left: 4px solid #a78543;
+    border-radius: 8px;
+    box-shadow: 0 16px 42px rgba(14, 14, 16, 0.18);
+    padding: 16px 18px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    pointer-events: auto;
+    animation: toastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mishae-luxury-toast.toast-hiding {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.96);
+}
+
+@keyframes toastSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-24px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.mishae-luxury-toast .toast-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FAF8F5;
+    border: 1px solid #EAE5DF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #a78543;
+    flex-shrink: 0;
+}
+
+.mishae-luxury-toast .toast-icon-wrap.is-heart {
+    color: #C62828;
+    background: #FFF5F5;
+    border-color: #FFCDD2;
+}
+
+.mishae-luxury-toast .toast-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.mishae-luxury-toast .toast-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #29211f;
+    margin: 0 0 3px;
+    line-height: 1.25;
+}
+
+.mishae-luxury-toast .toast-message {
+    font-size: 12.5px;
+    color: #666;
+    line-height: 1.45;
+    margin: 0 0 8px;
+    word-break: break-word;
+}
+
+.mishae-luxury-toast .toast-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #a78543 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.mishae-luxury-toast .toast-action-btn:hover {
+    color: #29211f !important;
+    transform: translateX(2px);
+}
+
+.mishae-luxury-toast .toast-close-btn {
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 20px;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+    outline: none;
+}
+
+.mishae-luxury-toast .toast-close-btn:hover {
+    color: #29211f;
+}
+
+.mishae-luxury-toast .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: #a78543;
+    width: 100%;
+    animation: toastTimer 4s linear forwards;
+}
+
+@keyframes toastTimer {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+@media (max-width: 576px) {
+    .mishae-toast-container {
+        top: 14px;
+        right: 14px;
+        left: 14px;
+        width: auto;
+        max-width: none;
+    }
+}
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.mishae-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 16px 24px;
+}
+
+.mishae-logo,
+.mishae-logo:hover {
+    display: inline-block;
+    flex-shrink: 0;
+    color: #0E0E10 !important;
+    font-family: Georgia, serif !important;
+    font-size: 27px !important;
+    font-weight: normal !important;
+    letter-spacing: 2px !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+}
+
+.mishae-logo span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: #8B7968;
+    margin-top: 3px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.mishae-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.mishae-nav-links a {
+    font-size: 12.5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--story-text-dark);
+    position: relative;
+    padding: 6px 0;
+    text-decoration: none !important;
+}
+
+.mishae-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--story-champagne);
+    transition: width 0.25s ease;
+}
+
+.mishae-nav-links a:hover {
+    color: var(--story-champagne-dark);
+}
+
+.mishae-nav-links a:hover::after,
+.mishae-nav-links a.active::after {
+    width: 100% !important;
+}
+
+.mishae-nav-links a.active {
+    color: var(--story-text-dark) !important;
+    font-weight: 600 !important;
+}
+
+.mishae-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.mishae-footer {
+    background: #1E1B1C !important;
+    color: var(--story-champagne-soft) !important;
+    padding: 65px 6% 30px;
+    border-top: 1px solid #332E2D;
+}
+
+.mishae-footer h5,
+.mishae-footer h6 {
+    color: #FFFFFF !important;
+}
+
+.mishae-footer a {
+    color: #B4ACA5 !important;
+    transition: color 0.2s ease;
+}
+
+.mishae-footer a:hover {
+    color: var(--story-champagne) !important;
+}
+
+/* =========================================
+   RESPONSIVE UTILITIES
+   ========================================= */
+
+.mishae-product-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 6px;
+}
+
+.mishae-quick-add-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 10px !important;
+    letter-spacing: 0.8px !important;
+    padding: 4px 8px !important;
+    white-space: nowrap !important;
+    border-radius: 3px !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.mishae-quick-add-btn i {
+    font-size: 9px;
+    margin-right: 3px;
+}
+
+@media (max-width: 991px) {
+    .mishae-navbar {
+        padding: 14px 18px;
+    }
+
+    .mishae-announcement {
+        min-height: 22px;
+        padding: 3px 8px;
+    }
+
+    .announcement-item {
+        font-size: 8.5px;
+        letter-spacing: 0.6px;
+        padding: 0 10px;
+        gap: 5px;
+    }
+
+    .announcement-item i {
+        font-size: 8.5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .mishae-announcement {
+        min-height: 20px;
+        padding: 2.5px 6px;
+    }
+
+    .announcement-item {
+        font-size: 8px;
+        letter-spacing: 0.4px;
+        padding: 0 6px;
+        gap: 4px;
+    }
+
+    .announcement-item i {
+        font-size: 8px;
+    }
+
+    .mishae-product-card-footer {
+        gap: 4px !important;
+        margin-top: 6px !important;
+        padding-top: 6px !important;
+    }
+
+    .mishae-view-product,
+    .product-btn {
+        font-size: 9px !important;
+        letter-spacing: 0.3px !important;
+        white-space: nowrap !important;
+        padding: 0 !important;
+        line-height: 1.2 !important;
+    }
+
+    .mishae-quick-add-btn {
+        font-size: 8px !important;
+        letter-spacing: 0.2px !important;
+        padding: 3px 5px !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+        min-height: 20px !important;
+    }
+
+    .mishae-quick-add-btn i {
+        font-size: 7.5px !important;
+        margin-right: 2px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .mishae-view-product,
+    .product-btn {
+        font-size: 8px !important;
+        letter-spacing: 0 !important;
+    }
+
+    .mishae-quick-add-btn {
+        font-size: 7.5px !important;
+        letter-spacing: 0 !important;
+        padding: 2px 4px !important;
+    }
+
+    .mishae-quick-add-btn i {
+        font-size: 7px !important;
+        margin-right: 1.5px !important;
+    }
+}

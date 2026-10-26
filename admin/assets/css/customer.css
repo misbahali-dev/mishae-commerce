@@ -1,0 +1,2 @@
+/* Forwarding customer.css to customers.css */
+@import url("customers.css");

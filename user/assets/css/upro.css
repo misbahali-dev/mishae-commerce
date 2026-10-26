@@ -1,0 +1,362 @@
+/* =========================================================
+   MiSHAÉ LUXURY FABRIC ATELIER - PRODUCTS & CATALOG CSS
+   Consistent off-white, champagne, and Playfair editorial aesthetic
+   ========================================================= */
+
+.products-section {
+    padding: 50px 24px 85px;
+    background: var(--story-bg-base);
+}
+
+.products-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 35px;
+}
+
+.products-heading .section-subtitle {
+    color: var(--story-champagne-dark);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.products-heading h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(26px, 3vw, 34px);
+    color: var(--story-text-dark);
+    font-weight: 500;
+    margin: 0 0 10px;
+}
+
+.products-heading > p:last-child {
+    color: var(--story-text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Category & Seasonal Filter Pills */
+.products-filter {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.products-filter a {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #FFFFFF;
+    color: var(--story-text-dark);
+    border: 1px solid var(--story-border);
+    border-radius: 20px;
+    font-size: 11.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.products-filter a:hover {
+    border-color: var(--story-champagne);
+    color: var(--story-champagne-dark);
+    background: #FFFFFF;
+}
+
+.products-filter a.active {
+    background: var(--story-text-dark);
+    color: #FFFFFF !important;
+    border-color: var(--story-text-dark);
+    box-shadow: 0 4px 12px rgba(41, 37, 38, 0.15);
+}
+
+.mishae-sort-select {
+    min-width: 160px !important;
+    height: 36px !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    color: #292526 !important;
+    background-color: #FAF8F5 !important;
+    border: 1px solid #EAE5DF !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+}
+
+.mishae-sort-select option {
+    color: #292526 !important;
+    background-color: #FFFFFF !important;
+    font-size: 12px !important;
+}
+
+/* Products Grid */
+.products-grid,
+.mishae-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1260px;
+    margin: 0 auto 40px;
+}
+
+/* Equal Height Luxury Product Cards */
+.product-card,
+.mishae-product-card {
+    background: #FFFFFF;
+    border: 1px solid var(--story-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--story-shadow);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover,
+.mishae-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--story-shadow-hover);
+    border-color: var(--story-champagne);
+}
+
+/* Card Image Box - strict fixed uniform dimensions */
+.product-image,
+.mishae-product-image {
+    position: relative;
+    display: block;
+    width: 100% !important;
+    height: 320px !important;
+    max-height: 320px !important;
+    overflow: hidden;
+    background: var(--story-bg-alt);
+}
+
+/* Card Image - never stretches/distorts, object-fit: cover, faces preserved at top */
+.product-image img,
+.mishae-product-image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 320px !important;
+    object-fit: cover !important;
+    object-position: top center !important; /* Ensures women's faces and attire necklines are fully visible */
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image img,
+.mishae-product-card:hover .mishae-product-image img {
+    transform: scale(1.04);
+}
+
+/* Category Tag / Floating Badge */
+.product-category,
+.mishae-product-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(41, 37, 38, 0.88);
+    color: #FFFFFF;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+/* Product Info */
+.product-info,
+.mishae-product-info {
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: #FFFFFF;
+}
+
+.product-info h3,
+.mishae-product-info h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--story-text-dark);
+    line-height: 1.4;
+    margin: 0 0 8px;
+    min-height: 42px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-info h3 a,
+.mishae-product-info h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-price,
+.mishae-product-price {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--story-text-dark);
+    margin: 0 0 10px;
+}
+
+.product-btn,
+.mishae-view-product {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--story-text-dark) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+}
+
+.product-btn:hover,
+.mishae-view-product:hover {
+    color: var(--story-champagne-dark) !important;
+}
+
+.stock-label {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #C62828;
+    background: #FDF2F2;
+    padding: 4px 8px;
+    border-radius: 3px;
+    margin-top: auto;
+}
+
+/* Empty Catalog Notice */
+.products-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 70px 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--story-border);
+    border-radius: 8px;
+}
+
+.products-empty h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .products-grid,
+    .mishae-product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid,
+    .mishae-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .product-image,
+    .mishae-product-image {
+        height: 280px !important;
+        max-height: 280px !important;
+    }
+
+    .product-image img,
+    .mishae-product-image img {
+        max-height: 280px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .products-section {
+        padding: 25px 12px 60px !important;
+    }
+
+    .products-filter {
+        gap: 6px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .products-filter a {
+        padding: 6px 12px !important;
+        font-size: 10.5px !important;
+    }
+
+    .products-grid,
+    .mishae-product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .product-image,
+    .mishae-product-image {
+        height: 210px !important;
+        max-height: 210px !important;
+    }
+
+    .product-image img,
+    .mishae-product-image img {
+        max-height: 210px !important;
+    }
+
+    .product-info,
+    .mishae-product-info {
+        padding: 10px 8px !important;
+    }
+
+    .product-info h3,
+    .mishae-product-info h3 {
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        min-height: 35px;
+    }
+
+    .product-price,
+    .mishae-product-price {
+        font-size: 13px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .product-btn,
+    .mishae-view-product {
+        font-size: 9px !important;
+        letter-spacing: 0.3px !important;
+        white-space: nowrap !important;
+        padding: 0 !important;
+    }
+
+    .mishae-product-card-footer {
+        gap: 4px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .mishae-quick-add-btn {
+        font-size: 8px !important;
+        letter-spacing: 0.2px !important;
+        padding: 3px 5px !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+        min-height: 20px !important;
+    }
+
+    .mishae-quick-add-btn i {
+        font-size: 7.5px !important;
+        margin-right: 2px !important;
+    }
+}
