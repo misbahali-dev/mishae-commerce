@@ -49,7 +49,7 @@
 
 | Role | Email | Password |
 | :--- | :--- | :--- |
-| **Admin** | `admin@mishae.com` | `admin123` |
+| **Admin** | `admin@gmail.com` | `admin123` |
 
 
 ---
