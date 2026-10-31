@@ -428,6 +428,8 @@ document.addEventListener('click', function(e) {
                 actionUrl: 'wishlist.php',
                 actionText: 'View Wishlist \u2192'
             });
+        } else if (data && data.status === 'login_required') {
+            window.location.href = data.redirect || 'login.php';
         } else {
             // Fallback
             window.location.href = href;

@@ -56,7 +56,7 @@ $arrival_result = mysqli_query($conn, $arrival_query);
 
     <!-- MiSHAÉ Stylesheets (cache-busted) -->
     <link rel="stylesheet" href="assets/css/layout.css?v=3.7">
-    <link rel="stylesheet" href="assets/css/home.css?v=3.9">
+    <link rel="stylesheet" href="assets/css/home.css?v=4.2">
     <link rel="stylesheet" href="assets/css/store.css?v=3.7">
 </head>
 <body>
@@ -79,7 +79,7 @@ $arrival_result = mysqli_query($conn, $arrival_query);
 <!-- =========================================
      HERO SLIDER
 ========================================= -->
-<div id="mishaeHero" class="carousel slide mishae-hero" data-ride="carousel" data-interval="4500">
+<div id="mishaeHero" class="carousel slide mishae-hero" data-ride="carousel" data-interval="3500">
     <ol class="carousel-indicators">
         <li data-target="#mishaeHero" data-slide-to="0" class="active"></li>
         <li data-target="#mishaeHero" data-slide-to="1"></li>
@@ -173,7 +173,7 @@ $arrival_result = mysqli_query($conn, $arrival_query);
 <section class="mishae-season-section">
     <div class="mishae-section-heading">
         <p class="section-subtitle">SEASONAL EDIT</p>
-        <h2>Summer &amp; Winter Éditions</h2>
+        <h2>Summer <span class="mishae-amp">&amp;</span> Winter Editions</h2>
         <p>Curated fabrics crafted for warm weather lightness and cool festive warmth.</p>
     </div>
 
@@ -378,7 +378,7 @@ $arrival_result = mysqli_query($conn, $arrival_query);
 <script>
 $(document).ready(function () {
     $('#mishaeHero').carousel({
-        interval: 4500,
+        interval: 3500,
         ride: 'carousel',
         pause: 'hover'
     });

@@ -35,6 +35,16 @@ if ($is_customer_logged_in) {
     } else {
         $customer_first_name = 'Member';
     }
+
+    $customer_img = $_SESSION['customer_img'] ?? '';
+    if (empty($customer_img) && isset($conn) && $conn) {
+        $cid = (int)$_SESSION['customer_id'];
+        $ci_q = mysqli_query($conn, "SELECT cus_img FROM customers WHERE cus_id = $cid LIMIT 1");
+        if ($ci_q && $ci_r = mysqli_fetch_assoc($ci_q)) {
+            $customer_img = $ci_r['cus_img'] ?? '';
+            $_SESSION['customer_img'] = $customer_img;
+        }
+    }
 }
 
 // Active Navigation Detection
@@ -543,16 +553,25 @@ $nav_active_all_fabrics = ($current_script === 'products.php' && $get_cat === 0 
             <?php if ($is_customer_logged_in): ?>
                 <div class="mishae-account-dropdown-wrap mishae-account-desktop">
                     <a href="account.php" class="mishae-account-btn" title="My Account" id="accountMenuBtn">
-                        <i class="far fa-user-circle"></i>
+                        <?php if (!empty($customer_img) && file_exists(__DIR__ . '/../../admin/uploads/' . $customer_img)): ?>
+                            <img src="../admin/uploads/<?php echo htmlspecialchars($customer_img); ?>" alt="Avatar" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; border: 1px solid #C5A880; margin-right: 2px;">
+                        <?php else: ?>
+                            <i class="far fa-user-circle"></i>
+                        <?php endif; ?>
                         <span>Welcome, <?php echo $customer_first_name; ?></span>
                         <i class="fas fa-chevron-down nav-chevron"></i>
                     </a>
                     <div class="mishae-account-menu" id="accountDropdownMenu">
-                        <div class="mishae-account-menu-header">
-                            <strong><?php echo htmlspecialchars($customer_full_name); ?></strong>
-                            <?php if (!empty($_SESSION['customer_email'])): ?>
-                                <small><?php echo htmlspecialchars($_SESSION['customer_email']); ?></small>
+                        <div class="mishae-account-menu-header" style="display: flex; align-items: center; gap: 10px;">
+                            <?php if (!empty($customer_img) && file_exists(__DIR__ . '/../../admin/uploads/' . $customer_img)): ?>
+                                <img src="../admin/uploads/<?php echo htmlspecialchars($customer_img); ?>" alt="Avatar" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid #C5A880;">
                             <?php endif; ?>
+                            <div>
+                                <strong><?php echo htmlspecialchars($customer_full_name); ?></strong>
+                                <?php if (!empty($_SESSION['customer_email'])): ?>
+                                    <small><?php echo htmlspecialchars($_SESSION['customer_email']); ?></small>
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div class="mishae-account-menu-divider"></div>
                         <a href="account.php" class="mishae-account-menu-item">
@@ -572,9 +591,9 @@ $nav_active_all_fabrics = ($current_script === 'products.php' && $get_cat === 0 
                 </div>
             <?php else: ?>
                 <div class="mishae-auth-buttons mishae-account-desktop" style="display: flex; align-items: center; gap: 8px;">
-                    <a href="login.php" class="mishae-account-btn mishae-account-guest" title="Sign In to Your Account">
+                    <a href="login.php" class="mishae-account-btn mishae-account-guest" title="Log In to Your Account">
                         <i class="far fa-user"></i>
-                        <span>Sign In</span>
+                        <span>Log In</span>
                     </a>
                     <a href="register.php" class="mishae-account-btn mishae-account-register" title="Create a New Account">
                         <i class="fas fa-user-plus"></i>
@@ -639,7 +658,7 @@ $nav_active_all_fabrics = ($current_script === 'products.php' && $get_cat === 0 
             <?php else: ?>
                 <a href="login.php" style="color: #222; text-decoration: none; padding: 6px 0; display: flex; align-items: center; gap: 10px;">
                     <i class="far fa-user" style="width: 16px; color: #a78543;"></i>
-                    <span>Sign In</span>
+                    <span>Log In</span>
                 </a>
                 <a href="register.php" style="color: #222; text-decoration: none; padding: 6px 0; display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-user-plus" style="width: 16px; color: #a78543;"></i>

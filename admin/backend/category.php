@@ -1,7 +1,7 @@
 <?php
 session_start();
 /** @var mysqli $conn*/
-include './../config/config.php';
+require './../config/config.php';
 
 if (isset($_POST['submit'])) {
 
@@ -78,7 +78,7 @@ if (isset($_POST['update']) && isset($_GET['update'])) {
         exit();
     } else {
         $_SESSION['category_message'] = "Category not Updated.";
-        header('Location: ./../category/addcat.php');
+        header('Location: ./../category/viewcat.php');
         exit();
     }
 }
@@ -95,8 +95,8 @@ if (isset($_POST['delete']) && isset($_GET['delete'])) {
         header('Location: ./../category/viewcat.php');
         exit();
     } else {
-        $_SESSION['category_message'] = "Category not Updated.";
-        header('Location: ./../category/addcat.php');
+        $_SESSION['category_message'] = "Category not Deleted.";
+        header('Location: ./../category/viewcat.php');
         exit();
     }
 }

@@ -305,7 +305,7 @@ $totalDelivered = $deliveredRes ? mysqli_fetch_row($deliveredRes)[0] : 0;
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-document.getElementById('orderSearch')?.addEventListener('keyup', function() {
+document.getElementById('orderSearch')?.addEventListener('keyup', function(){
     let filter = this.value.toLowerCase();
     let rows = document.querySelectorAll('#orderTableBody tr');
     rows.forEach(row => {

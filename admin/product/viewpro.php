@@ -92,9 +92,9 @@ $catRes = mysqli_query($conn, "SELECT * FROM category WHERE cat_status = 1");
 
 
 
-<link rel="stylesheet" href="./../assets/css/layout.css">
+<link rel="stylesheet" href="./../assets/css/layout.css?v=2.3">
 
-<link rel="stylesheet" href="./../assets/css/product.css">
+<link rel="stylesheet" href="./../assets/css/product.css?v=2.3">
 
 
 
@@ -291,7 +291,7 @@ $catRes = mysqli_query($conn, "SELECT * FROM category WHERE cat_status = 1");
 
 
 
-                <div class="product-table-wrapper">
+                <div class="product-table-wrapper" style="scrollbar-width: none; -ms-overflow-style: none;">
 
                     <table class="premium-product-table">
 

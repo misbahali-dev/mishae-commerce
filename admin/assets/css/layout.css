@@ -459,6 +459,7 @@ a:focus-visible {
 
     font-size: 14px;
     font-weight: 600;
+    overflow: hidden;
 }
 
 .admin-info {
@@ -719,6 +720,7 @@ a:focus-visible {
     font-weight: 600;
     font-size: 16px;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .profile-header-info {
@@ -1012,4 +1014,26 @@ a:focus-visible {
     color: #b42318 !important;
     border-color: #f2c6c2 !important;
     border-left: 4px solid #c62828 !important;
+}
+
+
+/* =====================================================
+   GLOBAL INVISIBLE SCROLLBARS FOR ADMIN TABLES
+   Removes grey horizontal/vertical bars while preserving smooth scroll
+===================================================== */
+.product-table-wrapper,
+.table-responsive,
+.table-wrapper {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.product-table-wrapper::-webkit-scrollbar,
+.table-responsive::-webkit-scrollbar,
+.table-wrapper::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background: transparent !important;
 }

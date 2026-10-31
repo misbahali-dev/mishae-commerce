@@ -41,12 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['customer_name'] = $user['cus_name'];
                 $_SESSION['customer_email'] = $user['cus_email'];
                 $_SESSION['customer_phone'] = $user['cus_phone'];
+                $_SESSION['customer_img'] = $user['cus_img'] ?? '';
 
                 $_SESSION['flash_message'] = [
                     'type' => 'success',
                     'text' => "Welcome back, {$user['cus_name']}!"
                 ];
-                header('Location: account.php');
+                $redirect_target = $_SESSION['redirect_after_login'] ?? 'account.php';
+                unset($_SESSION['redirect_after_login']);
+                header("Location: $redirect_target");
                 exit();
             } else {
                 $error = 'Invalid password. Please check your login details and try again.';
@@ -62,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Sign In | MiSHAÉ Luxury Fabrics</title>
+    <title>Client Log In | MiSHAÉ Luxury Fabrics</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,15 +91,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Separate Switcher Tabs -->
         <div class="mishae-auth-tabs">
             <a href="login.php" class="auth-tab active">
-                <i class="far fa-user mr-1"></i> Sign In
+                <i class="far fa-user mr-1"></i> Log In
             </a>
             <a href="register.php" class="auth-tab">
                 <i class="fas fa-user-plus mr-1"></i> Create Account
             </a>
         </div>
 
-        <h2>Sign In</h2>
+        <h2>Log In</h2>
         <p>Access your bespoke orders, wishlist, and private privileges.</p>
+
+        <?php if (isset($_SESSION['flash_message'])): ?>
+            <div class="mishae-alert mishae-alert-<?php echo htmlspecialchars($_SESSION['flash_message']['type']); ?>" role="alert">
+                <span>
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <?php echo htmlspecialchars($_SESSION['flash_message']['text']); ?>
+                </span>
+                <button type="button" class="close" onclick="dismissMishaeAlert(this);" aria-label="Close Alert">&times;</button>
+            </div>
+            <?php unset($_SESSION['flash_message']); ?>
+        <?php endif; ?>
 
         <?php if (!empty($error)): ?>
             <div class="alert alert-danger py-2 small"><?php echo htmlspecialchars($error); ?></div>
@@ -113,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="password" name="password" required placeholder="Enter your password">
             </div>
 
-            <button type="submit" class="btn-checkout" style="border: none;">SIGN IN</button>
+            <button type="submit" class="btn-checkout" style="border: none;">LOG IN</button>
         </form>
 
         <div class="auth-switch-prompt">

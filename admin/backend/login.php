@@ -1,5 +1,6 @@
 <?php
 session_start();
+/** @var mysqli $conn*/
 require '../config/config.php';
 
 if (isset($_POST['btn'])) {
@@ -17,13 +18,14 @@ if (isset($_POST['btn'])) {
             $_SESSION['admin_id'] = $row['id'];
             $_SESSION['admin_name'] = $row['ad_name'];
             $_SESSION['admin_email'] = $row['ad_email'];
+            $_SESSION['admin_img'] = $row['ad_img'] ?? '';
 
             header('location: ./../home.php');
             exit();
         } else {
             $_SESSION['res'] = array(
                 'type' => 'danger',
-                'msg' => 'Invalid password. Please check your credentials.'
+                'msg' => 'Invalid password. Please check your Signin details.'
             );
             header('location: ./../index.php');
             exit();

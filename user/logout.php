@@ -6,6 +6,7 @@ unset($_SESSION['customer_id']);
 unset($_SESSION['customer_name']);
 unset($_SESSION['customer_email']);
 unset($_SESSION['customer_phone']);
+unset($_SESSION['customer_img']);
 unset($_SESSION['cart']);
 unset($_SESSION['wishlist']);
 unset($_SESSION['coupon']);
@@ -14,7 +15,7 @@ unset($_SESSION['buy_now_item']);
 
 $_SESSION['flash_message'] = [
     'type' => 'success',
-    'text' => 'You have been successfully signed out.'
+    'text' => 'You have been successfully logged out.'
 ];
 
 header('Location: home.php');

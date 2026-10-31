@@ -2,7 +2,9 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include './../config/config.php';
+/** @var mysqli $conn*/
+
+require './../config/config.php';
 
 // Target upload directory
 $upload_dir = __DIR__ . '/../uploads/';

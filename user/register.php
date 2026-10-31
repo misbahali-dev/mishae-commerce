@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $check = mysqli_query($conn, "SELECT cus_id FROM customers WHERE cus_email = '$email' LIMIT 1");
         if ($check && mysqli_num_rows($check) > 0) {
-            $error = 'An account with this email address already exists. Please sign in.';
+            $error = 'An account with this email address already exists. Please log in.';
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $insert = mysqli_query($conn, "INSERT INTO customers (cus_name, cus_email, cus_phone, cus_pass) VALUES ('$name', '$email', '$phone', '$hash')");
@@ -37,7 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'type' => 'success',
                     'text' => 'Welcome to MiSHAÉ! Your client profile has been created.'
                 ];
-                header('Location: account.php');
+                $redirect_target = $_SESSION['redirect_after_login'] ?? 'account.php';
+                unset($_SESSION['redirect_after_login']);
+                header("Location: $redirect_target");
                 exit();
             } else {
                 $error = 'Could not register account. Please try again.';
@@ -77,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Separate Switcher Tabs -->
         <div class="mishae-auth-tabs">
             <a href="login.php" class="auth-tab">
-                <i class="far fa-user mr-1"></i> Sign In
+                <i class="far fa-user mr-1"></i> Log In
             </a>
             <a href="register.php" class="auth-tab active">
                 <i class="fas fa-user-plus mr-1"></i> Create Account
@@ -86,6 +88,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <h2>Create Account</h2>
         <p>Register for exclusive previews, bespoke invitations, and simplified checkout.</p>
+
+        <?php if (isset($_SESSION['flash_message'])): ?>
+            <div class="mishae-alert mishae-alert-<?php echo htmlspecialchars($_SESSION['flash_message']['type']); ?>" role="alert">
+                <span>
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <?php echo htmlspecialchars($_SESSION['flash_message']['text']); ?>
+                </span>
+                <button type="button" class="close" onclick="dismissMishaeAlert(this);" aria-label="Close Alert">&times;</button>
+            </div>
+            <?php unset($_SESSION['flash_message']); ?>
+        <?php endif; ?>
 
         <?php if (!empty($error)): ?>
             <div class="alert alert-danger py-2 small"><?php echo htmlspecialchars($error); ?></div>
@@ -117,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="auth-switch-prompt">
             <span>Already have an account?</span>
-            <a href="login.php">Sign In to Your Account &rarr;</a>
+            <a href="login.php">Log In to Your Account &rarr;</a>
         </div>
     </div>
 </main>

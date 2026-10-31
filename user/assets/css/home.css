@@ -31,6 +31,18 @@
     font-weight: 500;
 }
 
+.mishae-section-heading h2 .mishae-amp,
+.mishae-amp {
+    font-family: Georgia, 'Baskerville', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.98em;
+    margin: 0 4px;
+    display: inline-block;
+    vertical-align: 0;
+    color: inherit;
+}
+
 .mishae-section-heading > p:last-child {
     color: var(--story-text-muted);
     font-size: 14.5px;
@@ -51,6 +63,7 @@
     height: 78vh;
     min-height: 520px;
     max-height: 700px;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .mishae-hero .carousel-item img {

@@ -4,6 +4,16 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once __DIR__ . '/../admin/config/config.php';
 
+if (!isset($_SESSION['customer_id'])) {
+    $_SESSION['flash_message'] = [
+        'type' => 'warning',
+        'text' => 'Please log in to your account or register to view your saved wishlist.'
+    ];
+    $_SESSION['redirect_after_login'] = 'wishlist.php';
+    header('Location: login.php');
+    exit();
+}
+
 $wishlist_ids = array_keys($_SESSION['wishlist'] ?? []);
 $products = [];
 

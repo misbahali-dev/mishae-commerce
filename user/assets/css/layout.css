@@ -379,60 +379,109 @@ a:hover {
    ========================================= */
 
 /* =========================================
-   FLASH NOTIFICATIONS & TOASTS
-   (Fixed in Viewport so user never misses notifications when scrolled)
+   FLASH NOTIFICATIONS & ALERTS
+   (Semantic, in-flow layout, never overlapping navigation)
    ========================================= */
 
 .mishae-alert {
-    position: fixed !important;
-    top: 24px !important;
-    right: 24px !important;
-    max-width: 440px !important;
-    width: calc(100% - 48px) !important;
-    z-index: 10800 !important;
-    margin: 0 !important;
-    padding: 14px 20px !important;
-    border-radius: 8px !important;
-    font-size: 13.5px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 15px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    box-shadow: 0 16px 40px rgba(14, 14, 16, 0.22) !important;
-    opacity: 1 !important;
-    transform: translateY(0) scale(1) !important;
-    animation: alertSlideInRight 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-    transition: opacity 0.35s ease, transform 0.35s ease !important;
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    margin: 16px auto;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(14, 14, 16, 0.05);
+    opacity: 1;
+    transform: translateY(0);
+    animation: alertSlideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
 }
 
-@keyframes alertSlideInRight {
+@keyframes alertSlideDown {
     0% {
         opacity: 0;
-        transform: translateY(-20px) scale(0.96);
+        transform: translateY(-8px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
 
 .mishae-alert.alert-collapsing {
     opacity: 0 !important;
-    transform: translateY(-16px) scale(0.96) !important;
+    transform: translateY(-8px) !important;
+    max-height: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-width: 0 !important;
     pointer-events: none !important;
-    transition: opacity 0.35s ease, transform 0.35s ease !important;
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease !important;
 }
 
-@media (max-width: 576px) {
-    .mishae-alert {
-        top: 14px !important;
-        right: 14px !important;
-        left: 14px !important;
-        width: auto !important;
-        max-width: none !important;
-    }
+/* Specific styling when alert is inside auth card (login / register) */
+.auth-container .mishae-alert {
+    max-width: 100%;
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    padding: 11px 16px;
+    box-shadow: none;
+}
+
+/* MiSHAÉ Alert Color Variants */
+.mishae-alert-warning {
+    background: #FFF9E6 !important;
+    border: 1px solid #FFE082 !important;
+    border-left: 4px solid #C5A880 !important;
+    color: #6D4C0E !important;
+}
+
+.mishae-alert-warning i {
+    color: #C5A880 !important;
+}
+
+.mishae-alert-success {
+    background: #F1F8F1 !important;
+    border: 1px solid #C8E6C9 !important;
+    border-left: 4px solid #2E7D32 !important;
+    color: #1B5E20 !important;
+}
+
+.mishae-alert-success i {
+    color: #2E7D32 !important;
+}
+
+.mishae-alert-danger,
+.mishae-alert-error {
+    background: #FDF2F2 !important;
+    border: 1px solid #FFCDD2 !important;
+    border-left: 4px solid #C62828 !important;
+    color: #B71C1C !important;
+}
+
+.mishae-alert-danger i,
+.mishae-alert-error i {
+    color: #C62828 !important;
+}
+
+.mishae-alert-info {
+    background: #F0F7FF !important;
+    border: 1px solid #BBDEFB !important;
+    border-left: 4px solid #1976D2 !important;
+    color: #0D47A1 !important;
+}
+
+.mishae-alert-info i {
+    color: #1976D2 !important;
 }
 
 .mishae-alert .close {
@@ -457,7 +506,7 @@ a:hover {
    ========================================================= */
 .mishae-toast-container {
     position: fixed;
-    top: 24px;
+    top: 105px;
     right: 24px;
     z-index: 10850;
     display: flex;
@@ -466,6 +515,16 @@ a:hover {
     max-width: 420px;
     width: calc(100% - 48px);
     pointer-events: none;
+}
+
+@media (max-width: 991px) {
+    .mishae-toast-container {
+        top: 85px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+        max-width: none;
+    }
 }
 
 .mishae-luxury-toast {

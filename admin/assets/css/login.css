@@ -304,9 +304,10 @@ body {
 
 .message-slot {
     width: 100%;
-    height: 48px;
+    min-height: 48px;
+    height: auto;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 
     display: flex;
     align-items: flex-start;
@@ -320,13 +321,15 @@ body {
 .login-message {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 
     width: 100%;
     min-height: 42px;
-    max-height: 48px;
+    height: auto;
 
     margin: 0;
-    padding: 9px 12px;
+    padding: 10px 14px;
 
     background: #fff0ef;
     color: #b42318;
@@ -340,9 +343,42 @@ body {
     font-size: 13px;
     font-weight: 500;
     line-height: 1.4;
+    box-sizing: border-box;
+}
 
-    overflow-wrap: anywhere;
-    overflow: auto;
+.login-message-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    word-break: break-word;
+}
+
+.login-message .alert-close-btn {
+    all: unset !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    padding: 0 !important;
+    margin: 0 0 0 8px !important;
+    background: transparent !important;
+    border: none !important;
+    color: #b42318 !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+.login-message .alert-close-btn:hover {
+    background: rgba(180, 35, 24, 0.12) !important;
+    color: #7f1d1d !important;
 }
 
 
@@ -469,7 +505,9 @@ body {
    10. LOGIN BUTTON
 ===================================================== */
 
-.login-box button {
+.login-box form button[type="submit"],
+.login-box button.login-submit-btn,
+.login-submit-btn {
     display: block;
     width: 100%;
     height: 46px;
@@ -487,13 +525,17 @@ body {
 }
 
 
-.login-box button:hover {
+.login-box form button[type="submit"]:hover,
+.login-box button.login-submit-btn:hover,
+.login-submit-btn:hover {
     background: #a78543;
     color: #ffffff;
 }
 
 
-.login-box button:focus-visible {
+.login-box form button[type="submit"]:focus-visible,
+.login-box button.login-submit-btn:focus-visible,
+.login-submit-btn:focus-visible {
     outline: 2px solid #a78543;
     outline-offset: 3px;
 }
@@ -564,7 +606,7 @@ body {
         margin-bottom: 13px;
     }
 
-    .login-box button {
+    .login-box form button[type="submit"], .login-submit-btn {
         height: 42px;
     }
 
@@ -775,7 +817,7 @@ body {
     }
 
 
-    .login-box button {
+    .login-box form button[type="submit"], .login-submit-btn {
         height: 45px;
         font-size: 10px;
         letter-spacing: 1.5px;
@@ -855,7 +897,7 @@ body {
         margin-bottom: 9px;
     }
 
-    .login-box button {
+    .login-box form button[type="submit"], .login-submit-btn {
         height: 38px;
     }
 

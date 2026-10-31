@@ -385,6 +385,34 @@
     color: var(--ord-muted);
 }
 
+
+
+ .inquiry-badge-email {
+            font-size: 11px;
+            color: #555;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+        }
+        .inquiry-badge-email:hover {
+            color: #29211f;
+            text-decoration: underline;
+        }
+        .inquiry-badge-phone {
+            font-size: 11px;
+            color: #198754;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 500;
+        }
+        .action-btn-group {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            justify-content: flex-end;
+        }
 /* =========================================
    RESPONSIVENESS
 ========================================= */

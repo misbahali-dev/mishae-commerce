@@ -123,10 +123,33 @@
     color: #1B5E20;
 }
 
-.mishae-alert-danger {
+.mishae-alert-danger,
+.mishae-alert-error {
     background: #FDF2F2;
     border-left: 4px solid var(--brand-danger);
     color: #B71C1C;
+}
+
+.mishae-alert-warning {
+    background: #FFF9E6;
+    border-left: 4px solid #C5A880;
+    border-color: #FFE082;
+    color: #6D4C0E;
+}
+
+.mishae-alert-info {
+    background: #F0F7FF;
+    border-left: 4px solid #1976D2;
+    border-color: #BBDEFB;
+    color: #0D47A1;
+}
+
+.auth-container .mishae-alert {
+    max-width: 100%;
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    padding: 11px 16px;
+    box-shadow: none;
 }
 
 /* =========================================

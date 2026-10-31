@@ -4,6 +4,16 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once __DIR__ . '/../admin/config/config.php';
 
+if (!isset($_SESSION['customer_id'])) {
+    $_SESSION['flash_message'] = [
+        'type' => 'warning',
+        'text' => 'Please log in to your account or register to complete your order.'
+    ];
+    $_SESSION['redirect_after_login'] = 'checkout.php';
+    header('Location: login.php');
+    exit();
+}
+
 $is_buy_now = !empty($_SESSION['is_buy_now']) && !empty($_SESSION['buy_now_item']);
 
 if ($is_buy_now) {

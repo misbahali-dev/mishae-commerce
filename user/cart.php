@@ -4,6 +4,16 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once __DIR__ . '/../admin/config/config.php';
 
+if (!isset($_SESSION['customer_id'])) {
+    $_SESSION['flash_message'] = [
+        'type' => 'warning',
+        'text' => 'Please log in to your account or register to view your shopping bag.'
+    ];
+    $_SESSION['redirect_after_login'] = 'cart.php';
+    header('Location: login.php');
+    exit();
+}
+
 // Visiting the shopping cart resets any transient Buy Now selection
 unset($_SESSION['is_buy_now'], $_SESSION['buy_now_item']);
 

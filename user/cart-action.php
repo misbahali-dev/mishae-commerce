@@ -28,6 +28,27 @@ function getCartCount() {
 
 switch ($action) {
     case 'add':
+        // Require customer login to add items to cart or use buy now
+        if (!isset($_SESSION['customer_id'])) {
+            $_SESSION['flash_message'] = [
+                'type' => 'warning',
+                'text' => 'Please log in to your account or create an account to add items to your shopping bag.'
+            ];
+            if ($is_ajax) {
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'status' => 'login_required',
+                    'success' => false,
+                    'message' => 'Please log in to add items to your shopping bag.',
+                    'redirect' => 'login.php'
+                ]);
+                exit();
+            }
+            $_SESSION['redirect_after_login'] = $_SERVER['HTTP_REFERER'] ?? 'products.php';
+            header('Location: login.php');
+            exit();
+        }
+
         $pro_id = (int)($_POST['pro_id'] ?? $_GET['pro_id'] ?? 0);
         $quantity = (int)($_POST['quantity'] ?? $_GET['quantity'] ?? 1);
         if ($quantity < 1) $quantity = 1;
@@ -215,6 +236,30 @@ switch ($action) {
         exit();
 
     case 'wishlist_toggle':
+        // Require customer login to save items to wishlist
+        if (!isset($_SESSION['customer_id'])) {
+            $_SESSION['flash_message'] = [
+                'type' => 'warning',
+                'text' => 'Please log in to your account or create an account to save items to your wishlist.'
+            ];
+            $is_ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')
+                       || isset($_GET['ajax']) 
+                       || isset($_POST['ajax']);
+            if ($is_ajax) {
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'status' => 'login_required',
+                    'success' => false,
+                    'message' => 'Please log in to save items to your wishlist.',
+                    'redirect' => 'login.php'
+                ]);
+                exit();
+            }
+            $_SESSION['redirect_after_login'] = $_SERVER['HTTP_REFERER'] ?? 'wishlist.php';
+            header('Location: login.php');
+            exit();
+        }
+
         $p_id = (int)($_GET['pro_id'] ?? 0);
         $status = 'error';
         $p_name = 'Piece';
@@ -232,7 +277,7 @@ switch ($action) {
                 $message = "\"$p_name\" removed from your wishlist.";
                 $_SESSION['flash_message'] = [
                     'type' => 'info',
-                    'text' => $message,
+                     'text' => $message,
                     'action' => 'wishlist_removed',
                     'pro_id' => $p_id,
                     'pro_name' => $p_name

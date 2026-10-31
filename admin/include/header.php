@@ -21,6 +21,15 @@ if (!isset($conn) || !$conn) {
 $admin_name = $_SESSION['admin_name'] ?? 'Admin';
 $admin_email = $_SESSION['admin_email'] ?? 'admin@mishae.com';
 $admin_initial = strtoupper(substr($admin_name, 0, 1) ?: 'A');
+$admin_img = $_SESSION['admin_img'] ?? '';
+if (empty($admin_img) && isset($conn) && $conn) {
+    $aid = $_SESSION['admin_id'] ?? 1;
+    $ai_q = mysqli_query($conn, "SELECT ad_img FROM ad_login WHERE id = $aid LIMIT 1");
+    if ($ai_q && $ai_r = mysqli_fetch_assoc($ai_q)) {
+        $admin_img = $ai_r['ad_img'] ?? '';
+        $_SESSION['admin_img'] = $admin_img;
+    }
+}
 
 // Dynamic Notifications Fetch
 $notif_items = [];
@@ -174,7 +183,13 @@ if (isset($conn) && $conn) {
         <div class="topbar-dropdown-container">
             <div class="admin-profile" id="adminProfileBtn" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" title="Account Menu">
 
-                <div class="admin-avatar"><?= $admin_initial ?></div>
+                <div class="admin-avatar">
+                    <?php if (!empty($admin_img) && file_exists(__DIR__ . '/../uploads/' . $admin_img)): ?>
+                        <img src="/commerce/admin/uploads/<?= htmlspecialchars($admin_img) ?>" alt="Admin" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    <?php else: ?>
+                        <?= $admin_initial ?>
+                    <?php endif; ?>
+                </div>
 
                 <div class="admin-info">
                     <strong><?= htmlspecialchars($admin_name) ?></strong>
@@ -188,7 +203,13 @@ if (isset($conn) && $conn) {
             <!-- Profile Dropdown Menu -->
             <div class="topbar-dropdown profile-dropdown" id="profileDropdown" role="menu">
                 <div class="profile-dropdown-header">
-                    <div class="profile-avatar-large"><?= $admin_initial ?></div>
+                    <div class="profile-avatar-large">
+                        <?php if (!empty($admin_img) && file_exists(__DIR__ . '/../uploads/' . $admin_img)): ?>
+                            <img src="/commerce/admin/uploads/<?= htmlspecialchars($admin_img) ?>" alt="Admin" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        <?php else: ?>
+                            <?= $admin_initial ?>
+                        <?php endif; ?>
+                    </div>
                     <div class="profile-header-info">
                         <strong><?= htmlspecialchars($admin_name) ?></strong>
                         <small><?= htmlspecialchars($admin_email) ?></small>

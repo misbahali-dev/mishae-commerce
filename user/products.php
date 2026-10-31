@@ -226,7 +226,7 @@ $cat_result = mysqli_query($conn, "SELECT * FROM category WHERE cat_status = 1 O
                         <!-- Product Image Link -->
                         <a href="product-detail.php?id=<?php echo $p_id; ?>" class="product-image">
                             <img src="../admin/uploads/<?php echo htmlspecialchars($product['pro_img']); ?>" 
-                                 alt="<?php echo htmlspecialchars($product['pro_name']); ?>">
+                                alt="<?php echo htmlspecialchars($product['pro_name']); ?>">
                             <span class="product-category"><?php echo htmlspecialchars($product['cat_name']); ?></span>
                         </a>
 

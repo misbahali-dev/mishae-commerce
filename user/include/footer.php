@@ -111,8 +111,8 @@ if (!isset($show_benefits_section)) {
                     <a href="account.php" style="color: #A69E96; text-decoration: none;">My Profile &amp; Orders</a>
                     <a href="logout.php" style="color: #A69E96; text-decoration: none;">Sign Out</a>
                 <?php else: ?>
-                    <a href="login.php" style="color: #A69E96; text-decoration: none;">Sign In</a>
-                    <a href="register.php" style="color: #A69E96; text-decoration: none;">Create Account</a>
+                    <a href="login.php" style="color: #A69E96; text-decoration: none;">Log In</a>
+                    <a href="register.php" style="color: #A69E96; text-decoration: none;">Sign Up</a>
                 <?php endif; ?>
                 <a href="about.php" style="color: #A69E96; text-decoration: none;">Our Story &amp; Craft</a>
                 <a href="contact.php" style="color: #A69E96; text-decoration: none;">Concierge &amp; Support</a>
