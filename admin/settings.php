@@ -69,7 +69,7 @@ $admin = mysqli_fetch_assoc($admin_res);
 
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/settings.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -150,7 +150,7 @@ $admin = mysqli_fetch_assoc($admin_res);
                                 <input type="password" name="ad_password" class="form-control" placeholder="Enter new password">
                             </div>
 
-                            <button type="submit" name="update_admin" class="btn btn-dark text-uppercase" style="font-size: 11px; letter-spacing: 1.5px; padding: 10px 20px;">
+                            <button type="submit" name="update_admin" class="btn-save-settings">
                                 Save Settings
                             </button>
                         </form>

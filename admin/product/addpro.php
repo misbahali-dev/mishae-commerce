@@ -20,7 +20,7 @@ if (session_status() === PHP_SESSION_NONE) {
           rel="stylesheet">
 
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="./../assets/css/layout.css">
     <link rel="stylesheet" href="./../assets/css/product.css">

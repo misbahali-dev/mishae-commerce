@@ -2,7 +2,7 @@
 
   
 
-$conn=mysqli_connect("localhost", "root", "", "commerce");
+$conn=mysqli_connect("127.0.0.1", "root", "", "commerce");
 
 
 

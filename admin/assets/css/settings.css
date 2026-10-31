@@ -141,30 +141,35 @@
     color: #a8a09b;
 }
 
-/* Save Button */
-.btn-save-settings {
+/* Save Button (Unified with MiSHAÉ Signature Button System) */
+.btn-save-settings,
+.product-card .btn-dark {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 26px;
-    background: var(--set-black);
-    color: #ffffff;
-    border: 1px solid var(--set-black);
+    padding: 10px 22px;
+    background: #29211f !important;
+    color: #ffffff !important;
+    border: 1px solid #29211f !important;
     border-radius: 4px;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.25s ease !important;
 }
 
-.btn-save-settings:hover {
-    background: var(--set-gold-dark);
-    border-color: var(--set-gold-dark);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(139, 107, 48, 0.25);
+.btn-save-settings:hover,
+.btn-save-settings:focus,
+.product-card .btn-dark:hover,
+.product-card .btn-dark:focus {
+    background: #a78543 !important;
+    border-color: #a78543 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(167, 133, 67, 0.25) !important;
 }
 
 /* Configuration Details Box */
